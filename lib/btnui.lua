@@ -69,18 +69,11 @@ function BTNUI:refresh()
 end
 
 function BTNUI:update(dt)
-    touches = {}
-    local touches = love.touch.getTouches()
     local mx, my = love.mouse.getPosition()
 
     for _, obj in pairs(self.buttons) do
         obj.hovered = obj.type == "Rect" and mx >= obj.x and mx <= obj.x + obj.width and my >= obj.y and my <= obj.y + obj.height
         obj.hovered = obj.type == "Circ" and ((obj.x-mx)^2+(obj.y-my)^2)^0.5 < obj.rad
-        for _, id in ipairs(touches) do
-            local tx, ty = love.touch.getPosition(id)
-            obj.hovered = obj.type == "Rect" and tx >= obj.x and tx <= obj.x + obj.width and ty >= obj.y and ty <= obj.y + obj.height
-            obj.hovered = obj.type == "Circ" and ((obj.x-tx)^2+(obj.y-ty)^2)^0.5 < obj.rad
-        end
     end
 end
 
@@ -100,15 +93,9 @@ function BTNUI:draw(fontsize)
             elseif obj.type == "Circ" then
                 love.graphics.circle("line", obj.x, obj.y, obj.rad)
                 love.graphics.print("ID: " .. id, obj.x, obj.y, 0, fs)
-                love.graphics.print("Hovered: " .. tostring(obj.hovered), obj.x, obj.y + obj.rad/2, 0, fs)
+                love.graphics.print("Hovered: " .. tostring(obj.hovered) .. tostring(self:isHovered(id)), obj.x, obj.y + obj.rad/2, 0, fs)
             end
         end
     end
     love.graphics.setColor(1, 1, 1)
-    local touches = love.touch.getTouches()
-
-    for i, id in ipairs(touches) do
-        local x, y = love.touch.getPosition(id)
-        love.graphics.circle("fill", x, y, 20)
-    end
 end
