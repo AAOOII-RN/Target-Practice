@@ -1,7 +1,14 @@
 BTNUI = Object:extend()
 
-function BTNUI:new()
+--[[
+	TODO:
+	1. Add support for simultaneous touches
+]]
+
+function BTNUI:new(onMobile)
     self.buttons = {}
+	self.touch = {}
+	self.onMobile = onMobile
 end
 
 function BTNUI:newRect(id, x, y, w, h, wake)
@@ -39,7 +46,6 @@ function BTNUI:editBtnRect(id, x, y, w, h, wake)
         wake = wake or self.buttons[id].wake,
         hovered = self.buttons[id].hovered
     }
-    return self.buttons[id]
 end
 
 function BTNUI:editBtnCirc(id, x, y, r, wake)
@@ -51,7 +57,6 @@ function BTNUI:editBtnCirc(id, x, y, r, wake)
         wake = wake or self.buttons[id].wake,
         hovered = self.buttons[id].hovered
     }
-    return self.buttons[id]
 end
 
 function BTNUI:refresh()
@@ -69,12 +74,29 @@ function BTNUI:refresh()
 end
 
 function BTNUI:update(dt)
-    local mx, my = love.mouse.getPosition()
-
-    for _, obj in pairs(self.buttons) do
-        obj.hovered = obj.type == "Rect" and mx >= obj.x and mx <= obj.x + obj.width and my >= obj.y and my <= obj.y + obj.height
-        obj.hovered = obj.type == "Circ" and ((obj.x-mx)^2+(obj.y-my)^2)^0.5 < obj.rad
-    end
+    mx, my = love.mouse.getPosition()
+	self.touch = love.touch.getTouches()
+	
+	if self.onMobile then
+		for _, obj in pairs(self.buttons) do
+            for _, id in ipairs(self.touch) do
+			    local tx, ty = love.touch.getPosition(id)
+				if obj.type == "Rect" then
+					obj.hovered = tx >= obj.x and tx <= obj.x + obj.width and ty >= obj.y and ty <= obj.y + obj.height
+				else
+					obj.hovered = ((obj.x-tx)^2+(obj.y-ty)^2)^0.5 < obj.rad
+				end
+		    end
+        end
+	else
+		for _, obj in pairs(self.buttons) do
+            if obj.type == "Rect" then
+				obj.hovered = mx >= obj.x and mx <= obj.x + obj.width and my >= obj.y and my <= obj.y + obj.height
+			else
+				obj.hovered = ((obj.x-mx)^2+(obj.y-my)^2)^0.5 < obj.rad
+			end
+        end
+	end
 end
 
 function BTNUI:isHovered(id)
@@ -93,7 +115,7 @@ function BTNUI:draw(fontsize)
             elseif obj.type == "Circ" then
                 love.graphics.circle("line", obj.x, obj.y, obj.rad)
                 love.graphics.print("ID: " .. id, obj.x, obj.y, 0, fs)
-                love.graphics.print("Hovered: " .. tostring(obj.hovered) .. tostring(self:isHovered(id)), obj.x, obj.y + obj.rad/2, 0, fs)
+                love.graphics.print("Hovered: " .. tostring(obj.hovered), obj.x, obj.y + obj.rad/2, 0, fs)
             end
         end
     end
