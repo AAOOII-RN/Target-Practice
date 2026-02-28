@@ -18,3 +18,4 @@
     - Theme
 	- Tutorial
 3. Records
+## Mascot
