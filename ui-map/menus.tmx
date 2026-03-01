@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="4">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="5">
  <editorsettings>
   <export target="menus.lua" format="lua"/>
  </editorsettings>
  <objectgroup draworder="index" id="2" name="Main Menu">
-  <object id="1" name="Play" type="button" x="19.3333" y="392" width="95.3333" height="43.3333">
+  <object id="3" name="Exit" type="button" x="688.75" y="389" width="95.3333" height="43.3333">
    <properties>
     <property name="Color" value="brown2"/>
     <property name="Goto" value="Gamemode"/>
+    <property name="Roundness" value="16"/>
    </properties>
   </object>
-  <object id="3" name="Exit" type="button" x="688.333" y="390" width="95.3333" height="43.3333">
+  <object id="1" name="Play" type="button" x="351.75" y="191.25" width="95.3333" height="43.3333">
    <properties>
     <property name="Color" value="brown2"/>
     <property name="Goto" value="Gamemode"/>
+    <property name="Roundness" value="16"/>
    </properties>
+  </object>
+  <object id="4" type="text" x="284.25" y="213.75" width="80" height="17">
+   <properties>
+    <property name="Scale" value="16"/>
+   </properties>
+   <text wrap="1">Hello World</text>
   </object>
  </objectgroup>
 </map>

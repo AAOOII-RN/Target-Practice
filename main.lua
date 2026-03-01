@@ -2,13 +2,11 @@ Object = require "lib.classic"
 require "lib.btnui"
 require "lib.fy6"
 require "lib.palette"
+require "classes.menus"
 
 math.randomseed(os.time())
 
-function love.load()
-	btnui = BTNUI(true)
-    fy6 = Fy6()
-	
+function love.load()	
     font = love.graphics.setNewFont("lib/Baloo2.ttf", 100)
     bg = love.graphics.newImage("lib/ballpics.png")
     ww, wh = love.graphics.getDimensions()
@@ -18,6 +16,11 @@ function love.load()
     timerInit = timer
     bgxl, bgyl = 0, 0 -- Background Position LERPing
 	targetHits = 0
+	
+	btnui = BTNUI()
+    fy6 = Fy6()
+	
+	menus = MENUS()
 	
 	-- Fy6
     fy6:setScreenBorder()
@@ -88,7 +91,9 @@ function love.draw()
     love.graphics.print(targetHits, ww/2, wh/2, 0, 0.5, 0.5, font:getWidth(math.ceil(timer))/2, font:getHeight()/2)
 
     love.graphics.setColor(1,1,1)
-
-    btnui:draw(0.5)
-    --fy6:draw(0.5)
+	
+    btnui:draw(0.25)
+    fy6:draw(0.25)
+	
+	menus:draw()
 end

@@ -1,5 +1,25 @@
 {
+    "activeFile": "menus.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "menus.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 362.75,
+                "y": 283.75
+            }
+        }
+    },
     "last.exportedFilePath": "C:/Users/aaooi/OneDrive/Desktop/Target-Practice/ui-map",
     "map.lastUsedExportFilter": "Lua files (*.lua)",
-    "map.lastUsedFormat": "tmx"
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "menus.tmx"
+    ],
+    "project": "ui-map-project.tiled-project",
+    "recentFiles": [
+        "menus.tmx"
+    ]
 }

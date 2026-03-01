@@ -10,7 +10,7 @@ return {
   tilewidth = 1,
   tileheight = 1,
   nextlayerid = 3,
-  nextobjectid = 4,
+  nextobjectid = 5,
   properties = {},
   tilesets = {},
   layers = {
@@ -29,35 +29,54 @@ return {
       properties = {},
       objects = {
         {
-          id = 1,
-          name = "Play",
-          type = "button",
-          shape = "rectangle",
-          x = 19.3333,
-          y = 392,
-          width = 95.3333,
-          height = 43.3333,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["Color"] = "brown2",
-            ["Goto"] = "Gamemode"
-          }
-        },
-        {
           id = 3,
           name = "Exit",
           type = "button",
           shape = "rectangle",
-          x = 688.333,
-          y = 390,
+          x = 688.75,
+          y = 389,
           width = 95.3333,
           height = 43.3333,
           rotation = 0,
           visible = true,
           properties = {
             ["Color"] = "brown2",
-            ["Goto"] = "Gamemode"
+            ["Goto"] = "Gamemode",
+            ["Roundness"] = "16"
+          }
+        },
+        {
+          id = 1,
+          name = "Play",
+          type = "button",
+          shape = "rectangle",
+          x = 351.75,
+          y = 191.25,
+          width = 95.3333,
+          height = 43.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Color"] = "brown2",
+            ["Goto"] = "Gamemode",
+            ["Roundness"] = "16"
+          }
+        },
+        {
+          id = 4,
+          name = "",
+          type = "text",
+          shape = "text",
+          x = 284.25,
+          y = 213.75,
+          width = 80,
+          height = 17,
+          rotation = 0,
+          visible = true,
+          text = "Hello World",
+          wrap = true,
+          properties = {
+            ["Scale"] = "16"
           }
         }
       }
