@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="4">
+ <editorsettings>
+  <export target="menus.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup draworder="index" id="2" name="Main Menu">
+  <object id="1" name="Play" type="button" x="19.3333" y="392" width="95.3333" height="43.3333">
+   <properties>
+    <property name="Color" value="brown2"/>
+    <property name="Goto" value="Gamemode"/>
+   </properties>
+  </object>
+  <object id="3" name="Exit" type="button" x="688.333" y="390" width="95.3333" height="43.3333">
+   <properties>
+    <property name="Color" value="brown2"/>
+    <property name="Goto" value="Gamemode"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

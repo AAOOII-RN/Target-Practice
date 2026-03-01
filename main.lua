@@ -48,14 +48,12 @@ function love.update(dt)
     btnui:update(dt)
 end
 
---[[
 function love.mousepressed()
     if btnui:isHovered("Target") then
         TargetPhys.body:setPosition(ww*math.random(), wh*math.random())
         TargetPhys.body:setLinearVelocity(math.sin(time/5)*600, math.cos(time/5)*600)
     end
 end
-]]
 
 function love.touchpressed()
 	btnui:update()
