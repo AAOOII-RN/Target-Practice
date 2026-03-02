@@ -6,7 +6,7 @@ require "classes.menus"
 
 math.randomseed(os.time())
 
-function love.load()	
+function love.load()
     font = love.graphics.setNewFont("lib/Baloo2.ttf", 100)
     bg = love.graphics.newImage("lib/ballpics.png")
     ww, wh = love.graphics.getDimensions()
@@ -99,12 +99,14 @@ function love.draw()
 
     -- TIMER
     love.graphics.setColor(fcv("black3"))
-    love.graphics.print(targetHits, ww/2, wh/2, 0, 0.5, 0.5, font:getWidth(math.ceil(timer))/2, font:getHeight()/2)
+    love.graphics.print(targetHits, ww/2, wh/2, 0, 0.5, 0.5, font:getWidth(targetHits)/2, font:getHeight()/2)
 
     love.graphics.setColor(1,1,1)
 	
     btnui:draw(0.25)
     fy6:draw(0.25)
 	
-	menus:draw()
+	--menus:draw()
+
+    love.graphic.print(love.graphics.getWidth() .. "x" .. love.graphics.getHeight(), ww/2, wh/3)
 end

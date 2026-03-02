@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="5">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="800" height="450" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="8">
  <editorsettings>
   <export target="menus.lua" format="lua"/>
  </editorsettings>
  <objectgroup draworder="index" id="2" name="Main Menu">
   <object id="3" name="Exit" type="button" x="688.75" y="389" width="95.3333" height="43.3333">
+   <properties>
+    <property name="Color" value="brown2"/>
+    <property name="Goto" value="Gamemode"/>
+    <property name="Roundness" value="16"/>
+   </properties>
+  </object>
+  <object id="5" name="Test" type="button" x="517.25" y="281" width="95.3333" height="43.3333">
+   <properties>
+    <property name="Color" value="brown2"/>
+    <property name="Goto" value="Gamemode"/>
+    <property name="Roundness" value="16"/>
+   </properties>
+  </object>
+  <object id="6" name="Test2" type="button" x="451.25" y="235" width="95.3333" height="43.3333">
+   <properties>
+    <property name="Color" value="brown2"/>
+    <property name="Goto" value="Gamemode"/>
+    <property name="Roundness" value="16"/>
+   </properties>
+  </object>
+  <object id="7" name="Test3" type="button" x="599.25" y="332.25" width="95.3333" height="43.3333">
    <properties>
     <property name="Color" value="brown2"/>
     <property name="Goto" value="Gamemode"/>

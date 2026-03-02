@@ -10,7 +10,7 @@ return {
   tilewidth = 1,
   tileheight = 1,
   nextlayerid = 3,
-  nextobjectid = 5,
+  nextobjectid = 8,
   properties = {},
   tilesets = {},
   layers = {
@@ -35,6 +35,57 @@ return {
           shape = "rectangle",
           x = 688.75,
           y = 389,
+          width = 95.3333,
+          height = 43.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Color"] = "brown2",
+            ["Goto"] = "Gamemode",
+            ["Roundness"] = "16"
+          }
+        },
+        {
+          id = 5,
+          name = "Test",
+          type = "button",
+          shape = "rectangle",
+          x = 517.25,
+          y = 281,
+          width = 95.3333,
+          height = 43.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Color"] = "brown2",
+            ["Goto"] = "Gamemode",
+            ["Roundness"] = "16"
+          }
+        },
+        {
+          id = 6,
+          name = "Test2",
+          type = "button",
+          shape = "rectangle",
+          x = 451.25,
+          y = 235,
+          width = 95.3333,
+          height = 43.3333,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["Color"] = "brown2",
+            ["Goto"] = "Gamemode",
+            ["Roundness"] = "16"
+          }
+        },
+        {
+          id = 7,
+          name = "Test3",
+          type = "button",
+          shape = "rectangle",
+          x = 599.25,
+          y = 332.25,
           width = 95.3333,
           height = 43.3333,
           rotation = 0,
