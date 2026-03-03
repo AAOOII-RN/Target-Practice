@@ -108,5 +108,5 @@ function love.draw()
 	
 	--menus:draw()
 
-    love.graphic.print(love.graphics.getWidth() .. "x" .. love.graphics.getHeight(), ww/2, wh/3)
+    love.graphics.print(love.graphics.getWidth() .. "x" .. love.graphics.getHeight(), ww/2, wh/3)
 end
