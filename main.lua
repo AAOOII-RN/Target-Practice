@@ -2,28 +2,30 @@ Object = require "lib.classic"
 require "lib.btnui"
 require "lib.fy6"
 require "lib.palette"
+push = require "lib.push"
 require "classes.menus"
-
 math.randomseed(os.time())
 
 function love.load()
+    love.graphics.setDefaultFilter("nearest", "nearest")
     font = love.graphics.setNewFont("lib/Baloo2.ttf", 100)
     bg = love.graphics.newImage("lib/ballpics.png")
-    ww, wh = love.graphics.getDimensions()
+    gww, gwh = 800, 360
+    ww, wh = love.window.getDesktopDimensions()
     ticker = 0
     time = os.time()-1771673600
     timer = 60
     timerInit = timer
     bgxl, bgyl = 0, 0 -- Background Position LERPing
 	targetHits = 0
-	
+    
 	btnui = BTNUI()
     fy6 = Fy6()
-	
 	menus = MENUS()
+    
+    push:setupScreen(gww, gwh, ww, wh)
 	
-	-- Fy6
-    fy6:setScreenBorder()
+    fy6:setScreenBorder(ww, wh)
 
     TargetPhys = fy6:newCirc("Target", ww*math.random(), wh*math.random(), 30, "dynamic")
     TargetPhys.body:setLinearVelocity(math.sin(time/5)*600, math.cos(time/5)*600)
@@ -79,6 +81,7 @@ function love.touchpressed()
 end
 
 function love.draw()
+    push:start()
     love.graphics.setBackgroundColor(fcv("purple2"))
 
     -- TIMER CIRCLE
@@ -108,5 +111,6 @@ function love.draw()
 	
 	--menus:draw()
 
-    love.graphic.print(love.graphics.getWidth() .. "x" .. love.graphics.getHeight(), ww/2, wh/3)
+    love.graphics.print(ww .. "x" .. wh, ww/2, wh/3)
+    push:finish()
 end

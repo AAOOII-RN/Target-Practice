@@ -31,8 +31,8 @@ function Fy6:newCirc(id, x, y, r, type)
     return self.object[id]
 end
 
-function Fy6:setScreenBorder()
-    local ww, wh = love.graphics.getDimensions()
+function Fy6:setScreenBorder(ww, wh)
+    local ww, wh = ww, wh
     self:newRect("FY6_Border1", -30, 0, 30, wh)
     self:newRect("FY6_Border2", 0, -30, ww, 30)
     self:newRect("FY6_Border3", ww, 0, 30, wh)
